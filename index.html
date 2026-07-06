@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confere Aí - Desmatamento</title>
+  <style>
+    /* Configurações Gerais */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f6f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main h2 {
+      margin-top: 30px;
+      color: #1b5e20;
+    }
+
+    /* Alinhamento das Cartas */
+    .container-cartas {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 30px 20px 80px 20px;
+    }
+
+    /* Estrutura do Efeito de Virar (Flip) */
+    .cartao {
+      background-color: transparent;
+      width: 280px;
+      height: 380px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .cartao-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    /* O efeito acontece aqui ao passar o mouse (hover) */
+    .cartao:hover .cartao-inner {
+      transform: rotateY(180deg);
+    }
+
+    .cartao-frente, .cartao-verso {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+
+    /* Estilo do Verso (Resposta) */
+    .cartao-verso {
+      background-color: #fafdfa;
+      transform: rotateY(180deg);
+    }
+
+    /* Imagens das Cartas */
+    .cartao-imagem {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Textos dentro das cartas */
+    .cartao p {
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: auto 0;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header> 
+    <h1>Confere Aí</h1> 
+    <nav> 
+      <a href="#">Início</a> 
+    </nav> 
+  </header> 
+
+  <main> 
+    <h2>Mitos e verdades sobre o desmatamento. Passe o mouse para descobrir!</h2> 
+    
+    <section class="container-cartas"> 
+
+      <article class="cartao"> 
+        <div class="cartao-inner"> 
+          <div class="cartao-frente"> 
+            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=500" alt="Floresta" class="cartao-imagem"> 
+            <p>A Amazônia é o "pulmão do mundo" porque produz a maior parte do oxigênio da Terra!</p> 
+          </div> 
+          <div class="cartao-verso"> 
+            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=500" alt="Floresta" class="cartao-imagem"> 
+            <p style="color: #c0392b;">❌ Falso!<br><span style="font-weight: normal; font-size: 14px; color: #555;">A floresta consome quase todo o oxigênio que produz. A maior parte do oxigênio do planeta vem das algas marinhas.</span></p> 
+          </div> 
+        </div> 
+      </article> 
+
+      <article class="cartao"> 
+        <div class="cartao-inner"> 
+          <div class="cartao-frente"> 
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Solo seco" class="cartao-imagem"> 
+            <p>O desmatamento altera o regime de chuvas e pode causar secas em regiões distantes!</p> 
+          </div> 
+          <div class="cartao-verso"> 
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500" alt="Solo seco" class="cartao-imagem"> 
+            <p style="color: #27ae60;">✅ Verdadeiro!<br><span style="font-weight: normal; font-size: 14px; color: #555;">As árvores lançam umidade no ar (rios voadores). Sem elas, as chuvas diminuem, afetando a agricultura e as cidades.</span></p> 
+          </div> 
+        </div> 
+      </article> 
+
+      <article class="cartao"> 
+        <div class="cartao-inner"> 
+          <div class="cartao-frente"> 
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500" alt="Árvores" class="cartao-imagem"> 
+            <p>Plantar qualquer tipo de árvore em uma área desmatada recupera totalmente a floresta original!</p> 
+          </div> 
+          <div class="cartao-verso"> 
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500" alt="Árvores" class="cartao-imagem"> 
+            <p style="color: #c0392b;">❌ Falso!<br><span style="font-weight: normal; font-size: 14px; color: #555;">O reflorestamento exige espécies nativas. Monoculturas (como plantar apenas eucalipto) não restauram a biodiversidade original.</span></p> 
+          </div> 
+        </div> 
+      </article> 
+
+    </section> 
+  </main> 
+
+  <footer> 
+    <p>Projeto feito por [Seu Nome]</p> 
+  </footer>  
+
+</body>
+</html>
